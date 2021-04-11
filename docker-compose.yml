@@ -1,0 +1,34 @@
+version: '3.8'
+
+services: 
+  api:
+    image: petstore/petstore
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: php -S 0.0.0.0:8000 -t /app
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - petstore
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: petstore
+    volumes:
+      - petstore:/var/lib/mysql
+    networks:
+      - petstore
+    ports:
+      - "3304:3306"
+
+networks:
+  petstore:
+    external: false
+
+volumes:
+  petstore:
