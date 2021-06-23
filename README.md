@@ -5,8 +5,8 @@ Create a PHP implementation of the famous [Petstore API example](https://petstor
 ## Steps
 
 - [x] create the dockerfile
-- [ ] create the docker-compose setup
-- [ ] create the laravel framework base project
+- [x] create the docker-compose setup
+- [x] create the laravel framework base project
 - [ ] create the database structure and models using migrations and seeders
 - [ ] create routes, controllers and validations
 - [ ] create the API documentation
