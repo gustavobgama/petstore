@@ -6,11 +6,20 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    command: php -S 0.0.0.0:8000 -t /app/public
+    command: php artisan serve --host=0.0.0.0
+    restart: on-failure
     volumes:
       - ./:/app
     ports:
       - "8000:8000"
+    networks:
+      - petstore
+
+  composer:
+    image: petstore
+    command: composer install
+    volumes:
+      - ./:/app
     networks:
       - petstore
 
