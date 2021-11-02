@@ -17,7 +17,8 @@ services:
 
   composer:
     image: petstore
-    command: composer install
+    entrypoint: composer
+    command: install
     volumes:
       - ./:/app
     networks:
